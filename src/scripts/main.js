@@ -13,6 +13,17 @@ const inputCvc = document.querySelector(".input_cvc");
 const errorMsgSmall = Array.from(document.querySelectorAll(".error_msg"));
 const btn_submit = document.querySelector(".btn_submit");
 
+function showErrorMsgAndValidty(inputElement, index, method, property) {
+  if (!inputElement.value.trim()) {
+    errorMsgSmall[index].style.display = "block";
+    inputElement.classList.add("error_effect");
+    method.property = false;
+} else {
+    errorMsgSmall[index].style.display = "none";
+    inputElement.classList.remove("error_effect");
+    method.property = true;
+}
+}
 
 form.addEventListener("submit", function (event) {
   event.preventDefault();
@@ -104,56 +115,10 @@ btn_submit.addEventListener("click", function () {
     }
   });
 
-  /*
-  function showErrorMsgAndValidty() {
-    if (!inputName.value.trim()) {
-    errorMsgSmall[0].style.display = "block";
-    inputName.classList.add("error_effect");
-    inputValid.nameIsValid = false;
-  } else {
-    errorMsgSmall[0].style.display = "none";
-    inputName.classList.remove("error_effect");
-    inputValid.nameIsValid = true;
-  }
-  }
-  */
-
-  if (!inputName.value.trim()) {
-    errorMsgSmall[0].style.display = "block";
-    inputName.classList.add("error_effect");
-    inputValid.nameIsValid = false;
-  } else {
-    errorMsgSmall[0].style.display = "none";
-    inputName.classList.remove("error_effect");
-    inputValid.nameIsValid = true;
-  }
-  if (!inputMonth.value.trim()) {
-    errorMsgSmall[2].style.display = "block";
-    inputMonth.classList.add("error_effect");
-    inputValid.monthIsValid = false;
-  } else {
-    errorMsgSmall[2].style.display = "none";
-    inputMonth.classList.remove("error_effect");
-    inputValid.monthIsValid = true;
-  }
-  if (!inputYear.value.trim()) {
-    errorMsgSmall[2].style.display = "block";
-    inputYear.classList.add("error_effect");
-    inputValid.yearIsValid = false;
-  } else {
-    errorMsgSmall[2].style.display = "none";
-    inputYear.classList.remove("error_effect");
-    inputValid.yearIsValid = true;
-  }
-  if (!inputCvc.value.trim()) {
-    errorMsgSmall[3].style.display = "block";
-    inputCvc.classList.add("error_effect");
-    inputValid.cvcIsValid = false;
-  } else {
-    errorMsgSmall[3].style.display = "none";
-    inputCvc.classList.remove("error_effect");
-    inputValid.cvcIsValid = true;
-  }
+  showErrorMsgAndValidty(inputName, 0, "inputValid", "nameIsValid");
+  showErrorMsgAndValidty(inputMonth, 2, "inputValid", "monthIsValid");
+  showErrorMsgAndValidty(inputYear, 2, "inputValid", "yearIsValid");
+  showErrorMsgAndValidty(inputCvc, 3, "inputValid", "cvcIsValid");
 
   if (inputValid.nameIsValid && inputValid.cardNumberIsValid && inputValid.monthIsValid && inputValid.yearIsValid && inputValid.cvcIsValid) {
     alert("Dado é válido.");
