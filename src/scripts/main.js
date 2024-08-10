@@ -104,6 +104,19 @@ btn_submit.addEventListener("click", function () {
     }
   });
 
+  /*
+  function showErrorMsgAndValidty() {
+    if (!inputName.value.trim()) {
+    errorMsgSmall[0].style.display = "block";
+    inputName.classList.add("error_effect");
+    inputValid.nameIsValid = false;
+  } else {
+    errorMsgSmall[0].style.display = "none";
+    inputName.classList.remove("error_effect");
+    inputValid.nameIsValid = true;
+  }
+  }
+  */
 
   if (!inputName.value.trim()) {
     errorMsgSmall[0].style.display = "block";

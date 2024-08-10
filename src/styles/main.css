@@ -24,6 +24,9 @@ html {
 body {
     display: grid;
     grid-template-columns: .85fr 2fr;
+    overflow-x: hidden;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 div.element_effect,
